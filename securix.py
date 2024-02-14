@@ -1,6 +1,6 @@
-#pip install opencv_python
 import cv2
 from deepface import DeepFace
+
 
 def face_capture():
     clf = cv2.CascadeClassifier(r"filter/haarcascade_frontalface_default.xml")
