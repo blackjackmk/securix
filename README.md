@@ -1,6 +1,16 @@
-### Installation
+# Securix
 
-1. Install Python 3.9.11.
+> Face recognition script. Also can recognize body shape. Compare recognized face to known persons. Can be used for doorbell camera. Can be used both on video and live camera
+
+
+## 🖼️ Screenshots
+
+![Face recognition on video](assets/securix2.webp) 
+![Body shape recognition on video](assets/securix1.webp) 
+
+## 📦 Installation
+
+1. Install Python 3.9.11
 2. Install libraries from `requirements.txt`:
     ```bash
     pip install -r requirements.txt
@@ -10,7 +20,7 @@
     pip install --no-deps deepface
     ```
 
-### Usage
+## Usage
 
 1. Load your face to the folder `/users`.
 2. Run the program:
