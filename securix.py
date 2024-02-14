@@ -7,7 +7,7 @@ def face_capture():
     clfp = cv2.CascadeClassifier(r"filter/haarcascade_profileface.xml")
     clf_alt = cv2.CascadeClassifier(r"filter/haarcascade_frontalface_alt_tree.xml")
     clb = cv2.CascadeClassifier(r"filter/haarcascade_fullbody.xml")
-    camera = cv2.VideoCapture("foot.mp4")
+    camera = cv2.VideoCapture("video/toni_video.mp4")
 
     while True:
         ret, frame = camera.read()
@@ -19,13 +19,15 @@ def face_capture():
 
         for (x, y, width, height) in faces:
             cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 0, 255), 1)
-            #face_recogn(frame)
         for (x, y, width, height) in faces_profile:
             cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 200, 255), 1)
         for (x, y, width, height) in faces_alt:
             cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 255, 0), 1)
         for (x, y, w, h) in bodies:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+
+        if len(faces) > 0:
+            face_recogn(frame)
 
         cv2.imshow('Securix', frame)
         if cv2.waitKey(1) == ord('q'):#press q key to quit
@@ -36,7 +38,6 @@ def face_capture():
 def face_recogn(input_img):#face check
     try:
         result = DeepFace.find(input_img, db_path="users")
-        result = result.values.tolist()
 
         if result:
             print("Access submit")
