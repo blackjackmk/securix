@@ -28,20 +28,20 @@ def face_capture():
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
         cv2.imshow('Securix', frame)
-        if cv2.waitKey(1) == ord('q'):
+        if cv2.waitKey(1) == ord('q'):#press q key to quit
             break
     camera.release()
     cv2.destroyAllWindows()
 
-def face_recogn(input_img):#sprawdzanie twarzy
+def face_recogn(input_img):#face check
     try:
         result = DeepFace.find(input_img, db_path="users")
         result = result.values.tolist()
 
         if result:
-            print("Доступ дозволено")
+            print("Access submit")
         else:
-            print("Біжи з города")
+            print("Access denied")
 
     except Exception as _ex:
         return _ex
