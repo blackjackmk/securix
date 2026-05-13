@@ -23,7 +23,7 @@
 ## 🚀 Usage
 
 1. Place clear image files (e.g., `.jpg`, `.png`) of the people you want the system to recognize into the `users/` folder.
-2. Open `securix.py` in a text editor and modify line 9 (`camera = cv2.VideoCapture(...)`):
+2. Open `securix.py` in a text editor and modify line 10 (`camera = cv2.VideoCapture(...)`):
     - To use a specific video file:
       ```python
       camera = cv2.VideoCapture("video/your_video.mp4")
