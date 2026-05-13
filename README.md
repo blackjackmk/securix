@@ -1,12 +1,12 @@
 # Securix
 
-> Face recognition script. Also can recognize body shape. Compare recognized face to known persons. Can be used for doorbell camera. Can be used both on video and live camera
+> Securix is a Python-based facial and body recognition tool designed for security applications like smart doorbell cameras. It processes both live webcam feeds and pre-recorded video, comparing detected faces against a database of known users
 
 
 ## 🖼️ Screenshots
 
-![Face recognition on video](assets/securix2.webp) 
-![Body shape recognition on video](assets/securix1.webp) 
+![Face recognition on video](assets/securix2.webp)
+![Body shape recognition on video](assets/securix1.webp)
 
 ## 📦 Installation
 
@@ -20,15 +20,19 @@
     pip install --no-deps deepface
     ```
 
-## Usage
+## 🚀 Usage
 
-1. Load your face to the folder `/users`.
-2. Run the program:
+1. Place clear image files (e.g., `.jpg`, `.png`) of the people you want the system to recognize into the `users/` folder.
+2. Open `securix.py` in a text editor and modify line 9 (`camera = cv2.VideoCapture(...)`):
+    - To use a specific video file:
+      ```python
+      camera = cv2.VideoCapture("video/your_video.mp4")
+      ```
+    - To use your live webcam (usually ID `0`):
+      ```python
+      camera = cv2.VideoCapture(0)
+      ```
+3. Run the Script:
     ```bash
     python securix.py
     ```
-    - If you want to work with video, change `"foot.mp4"` to your file path.
-    - If you want to work with a webcam:
-        ```python
-        camera = cv2.VideoCapture(0)
-        ```
